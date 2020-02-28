@@ -11,3 +11,7 @@ class Book(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+class Category(models.Model):
+    genre = ''
+    associated_titles = []
