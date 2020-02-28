@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title%} 
+Recommended Programming Books
+{% endblock %}
+
+
+ {% block content %}
+
+    {% for book in books %}
+        <div id ="{{book.pk}}">
+        <p>{{book.title}}</p>
+        <p>{{book.author}}</p>
+        <p>{{book.external_link}}</p>
+        <p>{{book.published_date}}</p>
+        <p>{{book.subject}}</p>
+        <p>{{book.write_up}}</p>
+
+
+        
+
+        </div>
+
+
+    {% endfor %}
+
+ 
+    {% endblock %}
