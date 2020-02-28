@@ -2,16 +2,20 @@ from django.db import models
 
 
 class Book(models.Model):
-    title = 'tbd'
-    authors = 'tbd'
-    external_link = 'tbd'
-    published_date = 'tbd'
-    write_up = 'tbd'
-    cover_art = 'tbd'
+    title = models.CharField(max_length=20)
+    authors = models.ManyToManyField('Author')
+    external_link = models.URLField
+    published_date = models.DateField()
+    write_up = models.TextField()
+    # cover_art = models.ImageField()
+    # thumbnail = models.ImageField()
+    subjects = models.ManyToManyField('Subject')
 
     def __str__(self):
         return f'{self.title}'
 
-class Category(models.Model):
-    genre = ''
-    associated_titles = []
+class Subject(models.Model):
+    related_titles = models.ManyToManyField('Book')
+
+class Author(models.Model):
+    works = models.ManyToManyField('Book')
