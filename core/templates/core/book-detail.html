@@ -1,0 +1,22 @@
+<div>
+  <a href="/">👈 Back </a>
+</div>
+
+{% extends "base.html" %}
+
+{% block heading %}
+<h2>{{ book.title }} </h2>
+{% endblock %}
+
+{% block content %}
+<p>{{ book.subject }} </p>
+<h2>{{ book.title }} </h2>
+<p>{{ book.author }} </p>
+<p>{{ book.write_up }} </p>
+<p>{{ book.published_date}} </p>
+<div class="book" id="{{ book.pk }}">
+  <p style="margin: 0 25px 50px;">{{ book.description }}</p>
+</div>
+
+{% endblock %}
+

@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=40)
+    title = models.CharField(max_length=60)
     author = models.ForeignKey(
         'Author',
         on_delete=models.DO_NOTHING,)
@@ -29,3 +29,12 @@ class Author(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class Image(models.Model):
+    image_name = models.CharField(max_length=400)
+    imagefile = models.FileField(
+        upload_to='images', null=True, verbose_name=None)
+
+    def __str__(self):
+        return f'{self.name} {self.imagefile}'
