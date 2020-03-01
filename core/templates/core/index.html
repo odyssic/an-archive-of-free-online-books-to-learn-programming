@@ -11,7 +11,7 @@
         <div id ="{{book.pk}}">
         <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
         <p>{{book.author}}</p>
-        <h4> <a style="font-weight: bold;" href="{% url 'author' %}">{{ book.author }}</a></h4>
+        <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
         <p><a href = {{book.external_link}}>{{book.external_link}}</a></p>
         <p>{{book.published_date}}</p>
         <p>{{book.subject}}</p>
