@@ -25,7 +25,7 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('', views.homepage, name='homepage'),
     path('books/<int:pk>', views.book_detail, name='book-detail'),
-    path('author', views.author, name='author')
+    path('author/<int:pk>', views.author, name='author')
     # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

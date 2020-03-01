@@ -23,4 +23,4 @@ def book_detail(request, pk):
 def author(request, pk):
     author = Author.objects.get(pk=pk)
 
-    return render(request, 'core/author.html', {'author': author, 'pk': pk })
+    return render(request, 'core/author.html', {'author': author, 'pk': pk}
