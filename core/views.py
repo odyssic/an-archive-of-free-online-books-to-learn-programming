@@ -18,7 +18,7 @@ def book_detail(request, pk):
     return render(request, 'core/book-detail.html', {'book': book, 'pk': pk})
 
 
-def author(request):
-    author = Author.objects.get(author)
+def author(request, pk):
+    author = Author.objects.get(pk=pk)
 
-    return render(request, 'core/author.html', {'author': author})
+    return render(request, 'core/author.html', {'author': author, 'pk': pk})
