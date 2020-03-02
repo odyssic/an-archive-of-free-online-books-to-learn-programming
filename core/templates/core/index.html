@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'styles.css' %}"/>
 
 
-{% block title%} 
+
+{% block title %} 
     <title>Free Online Coding Books</title>
 {% endblock %}
 
@@ -31,7 +30,7 @@
         <p>{{book.write_up}}</p>
         
         
-        <img src="{{ book.image.url}}" alt="{{ book.title }}">
+        <img src="{{ book.image.url }}" alt="{{ book.title }}"/>
         </div>
 
     {% endfor %}
