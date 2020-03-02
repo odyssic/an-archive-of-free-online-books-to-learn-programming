@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: red; 
+  }
+  
+  img {
+    max-width:100%;
+  }
+ 
+
+body {
+  background-color: red;
+}
