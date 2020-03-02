@@ -24,6 +24,7 @@ class Book(models.Model):
 
 class Subject(models.Model):
     genre = models.CharField(max_length=20)
+    about = models.TextField()
 
     def __str__(self):
         return f'{self.genre}'
@@ -31,6 +32,7 @@ class Subject(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=40)
+    about = models.TextField()
 
     def __str__(self):
         return f'{self.name}'
@@ -39,12 +41,4 @@ class Author(models.Model):
 class Favorite(models.Model):
     person = models.ForeignKey(User, on_delete = models.CASCADE)
     book = models.ForeignKey(Book, on_delete = models.CASCADE)
-
-
-class Image(models.Model):
-    image = models.FileField(
-        upload_to='images', null=True, verbose_name=None)
-
-    def __str__(self):
-        return f'{self.image}'
 
