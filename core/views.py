@@ -1,8 +1,10 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_list_or_404, render, redirect
 from .models import Book, Author, Subject, Image
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def homepage(request):
     books = Book.objects.all()
     subjects = Subject.objects.all()

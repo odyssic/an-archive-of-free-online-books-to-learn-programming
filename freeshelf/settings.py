@@ -31,15 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'user.apps.UserConfig',
-    'core.apps.CoreConfig',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
-
+    'django.contrib.staticfiles',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,13 +118,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+REGISTRATION_DEFAULT_FROM_EMAIL = True
+REGISTRATION_EMAIL_HTML = True
+LOGIN_REDIRECT_URL = '/'

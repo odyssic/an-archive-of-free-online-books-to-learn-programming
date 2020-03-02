@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
@@ -12,15 +11,12 @@
     <title>Learn to Code - Free Programming Books</title>
     {% endblock %}
 
-
 </head>
-
-<div class="nav-left">
-  <a class="active" href="{% url 'homepage' %}">Home</a>
-  <a href="{% url 'register' %}">Register New User</a>
-</div>
-
 <body>
+    <div class="nav-left">
+        <a class="active" href="{% url 'homepage' %}">Home</a>
+    </div>
+    
     {% if messages %}
         {% for message in messages %}
         <div class='alert alert-{{ message.tags }}'>{{ message }}</div>
@@ -28,6 +24,5 @@
     {% endif %}
 
     {% block content %} {% endblock %}
-</body>
 
-</html>
+</body>
