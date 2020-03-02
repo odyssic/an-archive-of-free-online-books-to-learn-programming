@@ -15,4 +15,5 @@ urlpatterns = [
     path('author/<int:pk>', views.author, name='author'),
     path('subject/<int:pk>', views.subject, name='subject'),
     path('image/<int:pk>', views.image, name='image')
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
