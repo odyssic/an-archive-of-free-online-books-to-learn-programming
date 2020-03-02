@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title%} 
     <title>Free Online Coding Books</title>
 {% endblock %}
@@ -19,14 +19,14 @@
     {% for book in books %}
         <div id ="{{book.pk}}">
         <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
-        <p>{{book.author}}</p>
         <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
         <h4> <a style="font-weight: bold;" href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a></h4>
         <p><a href = {{book.external_link}}>{{book.external_link}}</a></p>
         <p>{{book.published_date}}</p>
-        <p>{{book.subject}}</p>
+        {% comment %} <p>{{book.subject}}</p> {% endcomment %}
         <p>{{book.write_up}}</p>
-
+        <img src="{{ book.image.url }}" alt="img">
+        <img src="{{ book.image.url}}" alt="{{ book.title }}">
 
         </div>
 

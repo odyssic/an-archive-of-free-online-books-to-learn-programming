@@ -12,6 +12,8 @@ class Book(models.Model):
     subject = models.ForeignKey(
         'Subject',
         on_delete=models.DO_NOTHING,)
+    imagefile = models.FileField(
+        upload_to='images', null=True, verbose_name=None)
 
     def __str__(self):
         return f'{self.title}'
@@ -32,9 +34,8 @@ class Author(models.Model):
 
 
 class Image(models.Model):
-    image_name = models.CharField(max_length=400)
     imagefile = models.FileField(
         upload_to='images', null=True, verbose_name=None)
 
     def __str__(self):
-        return f'{self.name} {self.imagefile}'
+        return f'{self.imagefile}'
