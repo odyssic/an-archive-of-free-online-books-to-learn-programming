@@ -36,6 +36,11 @@ class Author(models.Model):
         return f'{self.name}'
 
 
+class Favorite(models.Model):
+    person = models.ForeignKey(User, on_delete = models.CASCADE)
+    book = models.ForeignKey(Book, on_delete = models.CASCADE)
+
+
 class Image(models.Model):
     image = models.FileField(
         upload_to='images', null=True, verbose_name=None)
