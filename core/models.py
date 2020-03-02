@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from PIL import Image
 
 
 class Book(models.Model):
@@ -14,7 +15,7 @@ class Book(models.Model):
     subject = models.ForeignKey(
         'Subject',
         on_delete=models.DO_NOTHING,)
-    imagefile = models.FileField(
+    image = models.FileField(
         upload_to='images', null=True, verbose_name=None)
 
     def __str__(self):
@@ -36,10 +37,9 @@ class Author(models.Model):
 
 
 class Image(models.Model):
-    imagefile = models.FileField(
+    image = models.FileField(
         upload_to='images', null=True, verbose_name=None)
 
     def __str__(self):
-        return f'{self.imagefile}'
-
+        return f'{self.image}'
 

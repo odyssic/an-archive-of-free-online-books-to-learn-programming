@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}"/>
+
+
 {% block title%} 
     <title>Free Online Coding Books</title>
 {% endblock %}
@@ -23,9 +27,10 @@
         <h4> <a style="font-weight: bold;" href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a></h4>
         <p><a href = {{book.external_link}}>{{book.external_link}}</a></p>
         <p>{{book.published_date}}</p>
-        {% comment %} <p>{{book.subject}}</p> {% endcomment %}
+       
         <p>{{book.write_up}}</p>
-        <img src="{{ book.image.url }}" alt="img">
+        
+        
         <img src="{{ book.image.url}}" alt="{{ book.title }}">
         </div>
 
