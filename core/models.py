@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 class Book(models.Model):
@@ -39,3 +41,5 @@ class Image(models.Model):
 
     def __str__(self):
         return f'{self.imagefile}'
+
+

@@ -1,21 +1,21 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block title%} 
     <title>Free Online Coding Books</title>
 {% endblock %}
 
- {% block content %}
+{% block content %}
 
     <h1>Free Online Coding Books</h1>
 
     <nav class='nav'>
-        <ul class='subject_links'>{% for subject in subjects %}
+        <ul class='subject_links'>
+            {% for subject in subjects %}
              <li><a href="{% url 'subject' subject.pk %}">{{ subject.genre }}</a></li>
+            {% endfor %}
         </ul>
-    {% endfor %}
     </nav>
 
-  
     {% for book in books %}
         <div id ="{{book.pk}}">
         <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
@@ -27,11 +27,8 @@
         <p>{{book.write_up}}</p>
         <img src="{{ book.image.url }}" alt="img">
         <img src="{{ book.image.url}}" alt="{{ book.title }}">
-
         </div>
-
 
     {% endfor %}
 
- 
-    {% endblock %}
+ {% endblock %}
