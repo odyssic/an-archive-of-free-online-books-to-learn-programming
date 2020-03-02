@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_extensions'
+    'django.contrib.staticfiles'
+
 ]
 
 MIDDLEWARE = [
@@ -128,3 +128,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
