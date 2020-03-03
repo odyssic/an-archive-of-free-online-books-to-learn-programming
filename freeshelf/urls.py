@@ -11,6 +11,5 @@ urlpatterns = [
     path('books/<int:pk>', views.book_detail, name='book-detail'),
     path('author/<int:pk>', views.author, name='author'),
     path('subject/<int:pk>', views.subject, name='subject'),
-    # path('image/<int:pk>', views.image, name='image'),
     path('accounts/', include('registration.backends.default.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

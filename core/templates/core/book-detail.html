@@ -9,9 +9,9 @@
 {% endblock %}
 
 {% block content %}
-<p>{{ book.subject }} </p>
 <h2>{{ book.title }} </h2>
-<p>{{ book.author }} </p>
+<a href="{% url 'author' book.author.pk %}">{{ book.author }}</a>
+<a href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a>
 <p>{{ book.write_up }} </p>
 <p>{{ book.published_date}} </p>
 <div class="book" id="{{ book.pk }}">

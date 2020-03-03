@@ -4,20 +4,49 @@
     margin: 0;
 }
 
-body {
-    background-color: blue;
+img {
+    max-width: 100%;
+    width: 100px;
 }
 
-h1 {
-    color: red;
-    font-family: Arial, Helvetica, sans-serif;
+.page-title {
+    font-family: 'Fugaz One';
+    font-size: 3rem;
+    color: white
 }
 
-h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: blue;
+.row {
+    padding: 1rem;
+    background-color: rgb(49, 49, 49);
 }
 
-ul {
+.nav-bar {
+    background-color: gray;
+    width: 100%;
+    padding: 1rem;
+}
+.nav-item {
+    margin-right: 1rem;
+    color: rgb(49, 49, 49);
+    font-size: 1.5rem;
+    padding: 1rem
+}
+.nav-item:hover {
+    background-color: white;
+    border-radius: 20px;
+    color: rgb(49, 49, 49);
     text-decoration: none;
 }
+
+.book-title-main {
+    color: white;
+}
+
+.book-info-main a {
+    margin-right: 1rem;
+    line-height: 2rem;
+    color: rgb(49, 49, 49);
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 5px;
+}   

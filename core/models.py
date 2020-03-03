@@ -23,6 +23,7 @@ class Book(models.Model):
 
 
 class Subject(models.Model):
+
     genre = models.CharField(max_length=20)
     about = models.TextField()
     slug = models.SlugField(default=genre)
@@ -45,5 +46,7 @@ class Author(models.Model):
 
 
 class Favorite(models.Model):
-    person = models.ForeignKey(User, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+
+person = models.ForeignKey(User, on_delete=models.CASCADE)
+book = models.ForeignKey(Book, on_delete=models.CASCADE)

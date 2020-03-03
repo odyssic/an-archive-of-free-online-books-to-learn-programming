@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
     {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}"/>
-    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
     {% block title %}
     <title>Learn to Code - Free Programming Books</title>
     {% csrf_token %}
@@ -14,15 +15,6 @@
 </head>
 
 <body>
-    <div class="nav-left">
-        <a class="active" href="{% url 'homepage' %}">Home</a>
-    </div>
-    
-    {% if messages %}
-        {% for message in messages %}
-        <div class='alert alert-{{ message.tags }}'>{{ message }}</div>
-        {% endfor %}
-    {% endif %}
 
     {% block content %} {% endblock %}
 
