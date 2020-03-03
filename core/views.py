@@ -23,3 +23,9 @@ def author(request, pk):
 def subject(request, pk):
     subject = Subject.objects.get(pk=pk)
     return render(request, 'core/subject.html', {'subject': subject, 'pk': pk})
+
+
+def books_by_subject(request, slug):
+    book = Book.objects.get(slug=slug)
+    books_for_subject = Book.objects.filter(subject=subject)
+    return render(request, 'core/books_for_subject.html', {'books': books_for_subject, 'subject': subject})
