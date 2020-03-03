@@ -11,26 +11,19 @@
 
     <h1>Free Online Coding Books</h1>
 
-    <nav class='nav'>
+    <nav class='nav-bar'>
         <ul class='subject_links'>
             {% for subject in subjects %}
-             <li><a href="{% url 'subject' subject.pk %}">{{ subject.genre }}</a></li>
+             <li><a href="{% url 'subject' subject.pk %}">{{ book.subject.genre }}</a></li>
             {% endfor %}
         </ul>
     </nav>
 
     {% for book in books %}
-        <div id ="{{book.pk}}">
-        <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
-        <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
-        <h4> <a style="font-weight: bold;" href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a></h4>
-        <p><a href = {{book.external_link}}>{{book.external_link}}</a></p>
-        <p>{{book.published_date}}</p>
-       
-        <p>{{book.write_up}}</p>
-        
-        
-        <img src="{{ book.image.url }}" alt="{{ book.title }}"/>
+        <div id ="{{book.pk}}" class='container book-index'>
+            <img class='img-thumbnail rounded' src="{{ book.image.url }}" alt="{{ book.title }}"/>
+            <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a>
+            <a href = {{book.external_link}}>{{book.external_link}}</a>
         </div>
 
     {% endfor %}

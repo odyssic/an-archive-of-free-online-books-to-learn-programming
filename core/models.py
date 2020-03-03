@@ -23,23 +23,14 @@ class Book(models.Model):
 
 
 class Subject(models.Model):
-    genre = models.CharField(max_length=20)
+    genre = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
         return f'{self.genre}'
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
-
-
-class Image(models.Model):
-    image = models.FileField(
-        upload_to='images', null=True, verbose_name=None)
-
-    def __str__(self):
-        return f'{self.image}'
-
