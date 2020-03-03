@@ -2,15 +2,14 @@
 <div>
   <a href="/">👈 Back </a>
 </div>
+{% csrf_token %}
 {% block heading %}
 <h2>{{ subject }} </h2>
 {% endblock %}
 
 {% block content %}
-
-  <div>
-    <h1> {{subject}} </h1>
-  </div>
-
-
+<h1>These are {{tag.name}} Books</h1>
+{% for book in books %}
+<ul>{{book}}</ul>
+{% endfor %}
 {% endblock %}
