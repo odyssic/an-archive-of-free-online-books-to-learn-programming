@@ -23,8 +23,8 @@ class Book(models.Model):
 
 
 class Subject(models.Model):
-    genre = models.CharField(max_length=20)
-    about = models.TextField()
+    genre = models.CharField(max_length=20, null=True, blank=True)
+
 
     def __str__(self):
         return f'{self.genre}'
@@ -41,4 +41,3 @@ class Author(models.Model):
 class Favorite(models.Model):
     person = models.ForeignKey(User, on_delete = models.CASCADE)
     book = models.ForeignKey(Book, on_delete = models.CASCADE)
-

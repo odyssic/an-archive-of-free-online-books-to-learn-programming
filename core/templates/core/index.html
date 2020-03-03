@@ -8,31 +8,30 @@
 {% endblock %}
 
 {% block content %}
+    <div class='nav-bar'>
+        <h1 class='page-title'>Free Online Coding Books</h1>
+        <nav>
+            <ul class='nav'>
+                <li><a class="nav-item" href="{% url 'homepage' %}">Home</a></li>
+                {% for book in books %}
+                <li ><a class='nav-item' href="{% url 'subject' book.subject.pk %}">{{ book.subject.genre }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
 
-    <h1>Free Online Coding Books</h1>
-
-    <nav class='nav'>
-        <ul class='subject_links'>
-            {% for subject in subjects %}
-             <li><a href="{% url 'subject' subject.pk %}">{{ subject.genre }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
-
+    <div class='row'>
     {% for book in books %}
-        <div id ="{{book.pk}}">
-        <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
-        <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
-        <h4> <a style="font-weight: bold;" href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a></h4>
-        <p><a href = {{book.external_link}}>{{book.external_link}}</a></p>
-        <p>{{book.published_date}}</p>
-       
-        <p>{{book.write_up}}</p>
-        
-        
-        <img src="{{ book.image.url }}" alt="{{ book.title }}"/>
+        <div id ="{{book.pk}}" class='col-sm  book-container'>
+            <img class='img-thumbnail rounded' src="{{ book.image.url }}" alt="{{ book.title }}"/>
+            <h3><a class='book-title-main' href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h3>
+            <p class = 'book-info-main'>
+                <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a>
+                <a href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a>                
+                <a href = {{book.external_link}}>{{book.external_link}}</a>
+            </p>
         </div>
 
     {% endfor %}
-
+    </div>
  {% endblock %}

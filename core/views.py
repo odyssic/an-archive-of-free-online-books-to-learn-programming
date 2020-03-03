@@ -7,9 +7,6 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def homepage(request):
     books = Book.objects.all()
-    # subjects = Subject.objects.all()
-    # authors = Author.objects.all()
-    # images = Image.objects.all()
     return render(request, 'core/index.html', {'books': books})
 
 
