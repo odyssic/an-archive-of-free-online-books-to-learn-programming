@@ -25,12 +25,19 @@ class Book(models.Model):
 class Subject(models.Model):
     genre = models.CharField(max_length=20, null=True, blank=True)
 
+
     def __str__(self):
         return f'{self.genre}'
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=40, null=True, blank=True)
+    name = models.CharField(max_length=40)
+    about = models.TextField()
 
     def __str__(self):
         return f'{self.name}'
+
+
+class Favorite(models.Model):
+    person = models.ForeignKey(User, on_delete = models.CASCADE)
+    book = models.ForeignKey(Book, on_delete = models.CASCADE)
