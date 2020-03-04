@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'freeshelf.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
