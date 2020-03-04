@@ -2,15 +2,24 @@
 <div>
   <a href="/">👈 Back </a>
 </div>
+{% csrf_token %}
 {% block heading %}
-<h2>{{ subject }} </h2>
+<h2>{{ subject.genre }} </h2>
 {% endblock %}
 
 {% block content %}
-
-  <div>
-    <h1> {{subject}} </h1>
-  </div>
-
-
+<h1>These are {{subject.genre}} Books</h1>
+{% for book in books %}
+    {% if book.subject is subject.genre %}
+<div id ="{{book.pk}}" class='col-sm  book-container'>
+            <img class='img-thumbnail rounded' src="{{ book.image.url }}" alt="{{ book.title }}"/>
+            <h3><a class='book-title-main' href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h3>
+            <p class = 'book-info-main'>
+                <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a>
+                <a href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a>                
+                <a href = {{book.external_link}}>{{book.external_link}}</a>
+            </p>
+        </div>
+    {% endif %}
+{% endfor %}
 {% endblock %}
