@@ -1,37 +1,42 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}
+<title>Free Online Coding Books</title>
+{% endblock %} {% block content %}
+<div class="nav-bar">
+    <h1 class="page-title">Free Online Coding Books</h1>
+    <nav>
+        <ul class="nav">
+            <li><a class="nav-item" href="{% url 'homepage' %}">Home</a></li>
+            {% for book in books %}
+            <li><a class="nav-item" href="{% url 'subject' book.subject.pk %}">{{ book.subject.genre }}</a
+        ></li
+      >
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
 
+<div class="row">
+  {% for book in books %}
+  <div id="{{book.pk}}" class="col-sm  book-container">
+    <img
+      class="img-thumbnail rounded"
+      src="{{ book.image.url }}"
+      alt="{{ book.title }}"
+    />
+    <h3
+      ><a class="book-title-main" href="{% url 'book-detail' book.pk %}"
+        >{{ book.title }}</a
+      ></h3
+    >
+    {% if }
+    <p>this is going to be an icon for rendering favorites</p>
+    <p class="book-info-main">
+      <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a>
+                <a href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a>
+                <a href="{{book.external_link}}">{{book.external_link}}</a>
+                </p>
+</div>
 
-
-
-{% block title %} 
-    <title>Free Online Coding Books</title>
+{% comment %} {% if book.subject %} href= {% endcomment %} {% endfor %}
+</div>
 {% endblock %}
-
-{% block content %}
-    <div class='nav-bar'>
-        <h1 class='page-title'>Free Online Coding Books</h1>
-        <nav>
-            <ul class='nav'>
-                <li><a class="nav-item" href="{% url 'homepage' %}">Home</a></li>
-                {% for book in books %}
-                <li ><a class='nav-item' href="{% url 'subject' book.subject.pk %}">{{ book.subject.genre }}</a></li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </div>
-
-    <div class='row'>
-    {% for book in books %}
-        <div id ="{{book.pk}}" class='col-sm  book-container'>
-            <img class='img-thumbnail rounded' src="{{ book.image.url }}" alt="{{ book.title }}"/>
-            <h3><a class='book-title-main' href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h3>
-            <p class = 'book-info-main'>
-                <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a>
-                <a href="{% url 'subject' book.subject.pk %}">{{ book.subject }}</a>                
-                <a href = {{book.external_link}}>{{book.external_link}}</a>
-            </p>
-        </div>
-
-    {% endfor %}
-    </div>
- {% endblock %}

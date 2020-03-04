@@ -8,13 +8,13 @@ class Book(models.Model):
     title = models.CharField(max_length=60)
     author = models.ForeignKey(
         'Author',
-        on_delete=models.DO_NOTHING,)
+        on_delete=models.SET_NULL, null=True,)
     external_link = models.URLField()
     published_date = models.DateField()
     write_up = models.TextField()
     subject = models.ForeignKey(
         'Subject',
-        on_delete=models.DO_NOTHING,)
+        on_delete=models.SET_NULL, null=True,)
     image = models.FileField(
         upload_to='images', null=True, verbose_name=None)
 
@@ -26,7 +26,7 @@ class Subject(models.Model):
 
     genre = models.CharField(max_length=20)
     about = models.TextField()
-    slug = models.SlugField(default=genre)
+    slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):
         return f'{self.genre}'
@@ -47,6 +47,10 @@ class Author(models.Model):
 
 class Favorite(models.Model):
 
+    person = models.ForeignKey(
+        User, related_name="favorites", on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book, related_name="favorites", on_delete=models.CASCADE)
 
-person = models.ForeignKey(User, on_delete=models.CASCADE)
-book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    def __str__(self):
+        return f'Person: {self.person}, Book: {self.book}'

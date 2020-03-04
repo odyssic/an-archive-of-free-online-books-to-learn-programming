@@ -10,7 +10,6 @@ autopep8 = "*"
 django = "*"
 pillow = "*"
 django-registration-redux = "*"
-shell-plus = "*"
 django-extensions = "*"
 
 [requires]
